@@ -5,8 +5,8 @@ require('dotenv').config();
 
 const app = express().use(body_parser.json());
 
-const token = process.env.TOKEN
-const mytoken = process.env.MYTOKEN
+const token = process.env.TOKEN;
+const mytoken = process.env.MYTOKEN;
 
 
 app.listen(process.env.PORT, () => {
