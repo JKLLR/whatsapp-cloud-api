@@ -2,7 +2,7 @@ const express = require("express");
 const body_parser = require("body-parser");
 const axios = require("axios");
 require('dotenv').config();
-const MONGODB ="mongodb+srv://jeffhuria:Sb6MjorStlnGBM5U@cluster0.otvab5k.mongodb.net/?retryWrites=true&w=majority";
+const MONGODB = "mongodb+srv://jeffhuria:Sb6MjorStlnGBM5U@cluster0.otvab5k.mongodb.net/?retryWrites=true&w=majority";
 
 // const mysql = require("mysql");
 
