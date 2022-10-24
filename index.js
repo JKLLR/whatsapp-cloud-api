@@ -72,8 +72,8 @@ app.post("/webhook", async(req, res) => {
     console.log("anime titties");
     console.log(JSON.stringify(body_param, null, 2));
     const whatsappobj = {
-        id: "fuck you town",
-        from:"bitch cunt asshole"
+        id: "123456",
+        from:"12345678"
 
     }
 
@@ -121,7 +121,7 @@ app.post("/webhook", async(req, res) => {
     // 2022-10-24T20:54:56.494082+00:00 app[web.1]:         id: JSON.stringify(body_param, null, 2)["entry"][0].id,
 
     // const tweet = TweetSchema(tweetobj)
-    const whatsapp = users(whatsappobj)
+    const whatsapp = Whatsappschema(whatsappobj)
     await whatsapp.save()
     console.log({ json })
     console.log("saved text");
