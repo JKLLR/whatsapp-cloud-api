@@ -72,9 +72,53 @@ app.post("/webhook", async(req, res) => {
     console.log("anime titties");
     console.log(JSON.stringify(body_param, null, 2));
     const whatsappobj = {
-        id: JSON.stringify(body_param, null, 2)["entry"][0].id,
-        id: JSON.stringify(body_param, null, 2)["entry"][0]["changes"][0]["value"].metadata.display_phone_number
+        id: JSON.stringify(body_param, null, 2).entry[0].id,
+        id: JSON.stringify(body_param, null, 2).entry[0]["changes"][0]["value"].metadata.display_phone_number
     }
+
+    // anime titties
+    // 2022-10-24T20:54:56.492234+00:00 app[web.1]: {
+    // 2022-10-24T20:54:56.492234+00:00 app[web.1]:   "object": "whatsapp_business_account",
+    // 2022-10-24T20:54:56.492235+00:00 app[web.1]:   "entry": [
+    // 2022-10-24T20:54:56.492235+00:00 app[web.1]:     {
+    // 2022-10-24T20:54:56.492235+00:00 app[web.1]:       "id": "103597725875995",
+    // 2022-10-24T20:54:56.492236+00:00 app[web.1]:       "changes": [
+    // 2022-10-24T20:54:56.492236+00:00 app[web.1]:         {
+    // 2022-10-24T20:54:56.492236+00:00 app[web.1]:           "value": {
+    // 2022-10-24T20:54:56.492236+00:00 app[web.1]:             "messaging_product": "whatsapp",
+    // 2022-10-24T20:54:56.492237+00:00 app[web.1]:             "metadata": {
+    // 2022-10-24T20:54:56.492237+00:00 app[web.1]:               "display_phone_number": "254771459075",
+    // 2022-10-24T20:54:56.492237+00:00 app[web.1]:               "phone_number_id": "102368222669265"
+    // 2022-10-24T20:54:56.492237+00:00 app[web.1]:             },
+    // 2022-10-24T20:54:56.492238+00:00 app[web.1]:             "contacts": [
+    // 2022-10-24T20:54:56.492238+00:00 app[web.1]:               {
+    // 2022-10-24T20:54:56.492238+00:00 app[web.1]:                 "profile": {
+    // 2022-10-24T20:54:56.492238+00:00 app[web.1]:                   "name": "Sam"
+    // 2022-10-24T20:54:56.492238+00:00 app[web.1]:                 },
+    // 2022-10-24T20:54:56.492238+00:00 app[web.1]:                 "wa_id": "254713847445"
+    // 2022-10-24T20:54:56.492239+00:00 app[web.1]:               }
+    // 2022-10-24T20:54:56.492239+00:00 app[web.1]:             ],
+    // 2022-10-24T20:54:56.492239+00:00 app[web.1]:             "messages": [
+    // 2022-10-24T20:54:56.492239+00:00 app[web.1]:               {
+    // 2022-10-24T20:54:56.492239+00:00 app[web.1]:                 "from": "254713847445",
+    // 2022-10-24T20:54:56.492239+00:00 app[web.1]:                 "id": "wamid.HBgMMjU0NzEzODQ3NDQ1FQIAEhgUM0VCMDEyNzYyQUQ5N0UwOTUxNjEA",
+    // 2022-10-24T20:54:56.492240+00:00 app[web.1]:                 "timestamp": "1666644894",
+    // 2022-10-24T20:54:56.492240+00:00 app[web.1]:                 "text": {
+    // 2022-10-24T20:54:56.492240+00:00 app[web.1]:                   "body": "k"
+    // 2022-10-24T20:54:56.492240+00:00 app[web.1]:                 },
+    // 2022-10-24T20:54:56.492240+00:00 app[web.1]:                 "type": "text"
+    // 2022-10-24T20:54:56.492240+00:00 app[web.1]:               }
+    // 2022-10-24T20:54:56.492240+00:00 app[web.1]:             ]
+    // 2022-10-24T20:54:56.492241+00:00 app[web.1]:           },
+    // 2022-10-24T20:54:56.492241+00:00 app[web.1]:           "field": "messages"
+    // 2022-10-24T20:54:56.492241+00:00 app[web.1]:         }
+    // 2022-10-24T20:54:56.492241+00:00 app[web.1]:       ]
+    // 2022-10-24T20:54:56.492241+00:00 app[web.1]:     }
+    // 2022-10-24T20:54:56.492241+00:00 app[web.1]:   ]
+    // 2022-10-24T20:54:56.492241+00:00 app[web.1]: }
+    // 2022-10-24T20:54:56.494081+00:00 app[web.1]: /app/index.js:75
+    // 2022-10-24T20:54:56.494082+00:00 app[web.1]:         id: JSON.stringify(body_param, null, 2)["entry"][0].id,
+
     // const tweet = TweetSchema(tweetobj)
     const whatsapp = users(whatsappobj)
     await whatsapp.save()
