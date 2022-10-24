@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const whatsappschema = new mongoose.Schema({
     id: String,
-    author_id: String,
+    from: String,
     text: String
 })
 
