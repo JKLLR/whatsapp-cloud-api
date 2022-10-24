@@ -72,8 +72,9 @@ app.post("/webhook", async(req, res) => {
     console.log("anime titties");
     console.log(JSON.stringify(body_param, null, 2));
     const whatsappobj = {
-        id: JSON.stringify(body_param, null, 2).entry[0].id,
-        id: JSON.stringify(body_param, null, 2).entry[0]["changes"][0]["value"].metadata.display_phone_number
+        id: "fuck you town",
+        from:"bitch cunt asshole"
+
     }
 
     // anime titties
