@@ -2,6 +2,41 @@ const express = require("express");
 const body_parser = require("body-parser");
 const axios = require("axios");
 require('dotenv').config();
+const MONGODB = process.env.MONGO
+
+// const mysql = require("mysql");
+
+// create connection
+// const db = mysql.createConnection({
+//     host: "localhost",
+//     user: "root",
+//     password: "12345678",
+//     database: "whatsapp_api",
+
+// });
+
+// db.connect((err) => {
+//     if (err) {
+//         throw err;
+//     }
+//     console.log("Mysql Connected...");
+
+// });
+
+const mongoose = require("mongoose");
+
+const { Whatsappschema } = require('./models/whatsappschema')
+const db = async () => {
+    try {
+        await mongoose.connect(MONGODB);
+        console.log("Mongo Connected...");
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+db()
+
 
 const app = express().use(body_parser.json());
 
@@ -9,7 +44,7 @@ const token = process.env.TOKEN;
 const mytoken = process.env.MYTOKEN;
 
 
-app.listen(process.env.PORT, () => {
+app.listen(8080 || process.env.PORT, () => {
     console.log("webhook is listening");
 });
 
@@ -34,6 +69,7 @@ app.post("/webhook", (req, res) => {
 
     let body_param = req.body;
 
+    console.log("anime titties");
     console.log(JSON.stringify(body_param, null, 2));
 
     if (body_param.object) {
