@@ -44,7 +44,7 @@ const token = process.env.TOKEN;
 const mytoken = process.env.MYTOKEN;
 
 
-app.listen(8080 || process.env.PORT, () => {
+app.listen( process.env.PORT, () => {
     console.log("webhook is listening");
 });
 
