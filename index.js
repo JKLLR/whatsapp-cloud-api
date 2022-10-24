@@ -65,12 +65,21 @@ app.get("/webhook", (req, res) => {
 
 });
 
-app.post("/webhook", (req, res) => {
+app.post("/webhook", async(req, res) => {
 
     let body_param = req.body;
 
     console.log("anime titties");
     console.log(JSON.stringify(body_param, null, 2));
+    const whatsappobj = {
+        id: JSON.stringify(body_param, null, 2)["entry"][0].id,
+        id: JSON.stringify(body_param, null, 2)["entry"][0]["changes"][0]["value"].metadata.display_phone_number
+    }
+    // const tweet = TweetSchema(tweetobj)
+    const whatsapp = users(whatsappobj)
+    await whatsapp.save()
+    console.log({ json })
+    console.log("saved text");
 
     if (body_param.object) {
         console.log("inside body param");
